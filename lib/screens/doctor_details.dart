@@ -90,17 +90,19 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                                 style: const TextStyle(
                                     fontSize: 18, color: darkColor),
                               ),
+                              const Text(
+                                "8am to 8pm",
+                                style:
+                                    TextStyle(fontSize: 18, color: darkColor),
+                              ),
                               Text(
                                 doc.availability
                                     ? "Available"
                                     : "Not Available",
                                 style: const TextStyle(
-                                    color: darkColor, fontSize: 18),
-                              ),
-                              const Text(
-                                "8am to 8pm",
-                                style:
-                                    TextStyle(fontSize: 18, color: darkColor),
+                                    color: Color.fromARGB(255, 15, 140, 241),
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold),
                               ),
                             ],
                           ),
@@ -245,10 +247,37 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                           fontWeight: FontWeight.bold),
                     )),
                 Container(
-                  height: MediaQuery.of(context).size.height * 0.25,
                   width: MediaQuery.of(context).size.width - 30,
-                  child: Row(
-                    children: [Container()],
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                        color: darkColor,
+                      ),
+                      borderRadius: BorderRadius.circular(20)),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 15.0),
+                        child: Container(
+                          height: MediaQuery.of(context).size.height * 0.23,
+                          width: MediaQuery.of(context).size.width - 60,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            border: Border.all(color: darkColor),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 15.0, bottom: 15),
+                        child: Container(
+                          height: MediaQuery.of(context).size.height * 0.23,
+                          width: MediaQuery.of(context).size.width - 60,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            border: Border.all(color: darkColor),
+                          ),
+                        ),
+                      )
+                    ],
                   ),
                 )
               ],
