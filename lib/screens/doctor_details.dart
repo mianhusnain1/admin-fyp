@@ -284,6 +284,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                                   ? Image.asset("assets/imgs/id.png")
                                   : Image.network(doc.image)),
                         ),
+                        Container(),
                         Padding(
                           padding: const EdgeInsets.only(top: 15.0, bottom: 15),
                           child: Container(
