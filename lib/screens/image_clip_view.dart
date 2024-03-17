@@ -57,7 +57,7 @@ class ImageViewerClip extends StatelessWidget {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: Image.network(urlImage));
+                child: Image.asset(urlImage));
           },
         ),
       ),

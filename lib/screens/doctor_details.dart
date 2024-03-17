@@ -242,8 +242,17 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                     decoration: BoxDecoration(
                         border: Border.all(color: darkColor),
                         borderRadius: BorderRadius.circular(20)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        doc.description.isNotEmpty
+                            ? doc.description
+                            : " Doctor description is not updated yet.",
+                        style: TextStyle(color: darkColor, fontSize: 15),
+                      ),
+                    ),
                   ),
-                  Container(
+                  SizedBox(
                       height: MediaQuery.of(context).size.height * 0.05,
                       width: MediaQuery.of(context).size.width - 30,
                       child: const Text(
@@ -265,24 +274,28 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                         Padding(
                           padding: const EdgeInsets.only(top: 15.0),
                           child: Container(
-                            height: MediaQuery.of(context).size.height * 0.23,
-                            width: MediaQuery.of(context).size.width - 60,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              border: Border.all(color: darkColor),
-                            ),
-                          ),
+                              height: MediaQuery.of(context).size.height * 0.23,
+                              width: MediaQuery.of(context).size.width - 60,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                border: Border.all(color: darkColor),
+                              ),
+                              child: doc.license == ""
+                                  ? Image.asset("assets/imgs/id.png")
+                                  : Image.network(doc.image)),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top: 15.0, bottom: 15),
                           child: Container(
-                            height: MediaQuery.of(context).size.height * 0.23,
-                            width: MediaQuery.of(context).size.width - 60,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              border: Border.all(color: darkColor),
-                            ),
-                          ),
+                              height: MediaQuery.of(context).size.height * 0.23,
+                              width: MediaQuery.of(context).size.width - 60,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                border: Border.all(color: darkColor),
+                              ),
+                              child: doc.license == ""
+                                  ? Image.asset("assets/imgs/id-1.png")
+                                  : Image.network(doc.image)),
                         )
                       ],
                     ),

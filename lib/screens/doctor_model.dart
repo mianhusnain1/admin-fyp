@@ -13,7 +13,8 @@ class Doctor {
   final String license;
   final bool approved;
   final String language;
-
+  final String description;
+  // final String idCard;
   Doctor({
     required this.language,
     required this.id,
@@ -29,11 +30,15 @@ class Doctor {
     required this.image,
     required this.license,
     required this.approved,
+    required this.description,
+    // required this.idCard
   });
 
   factory Doctor.fromMap(Map<String, dynamic> data) {
     return Doctor(
+      description: data['description'] ?? "",
       id: data['id'] ?? "",
+      // idCard: data['idCard'] ?? "",
       email: data['email'] ?? "",
       name: data['name'] ?? "",
       category: data['catagory'] ?? "",
@@ -52,7 +57,9 @@ class Doctor {
 
   Map<String, dynamic> toMap() {
     return {
+      'description': description,
       'id': id,
+      // 'idCard': idCard,
       'email': email,
       'name': name,
       'catagory': category,

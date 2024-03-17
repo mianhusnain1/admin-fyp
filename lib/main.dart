@@ -10,9 +10,9 @@ void main() async {
   );
   runApp(const MyApp());
 }
+
 const Color lightColor = Color(0xFF72DDE8);
 const Color darkColor = Color(0xFF1D5761);
-
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: darkColor),
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,

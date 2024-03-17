@@ -2,7 +2,7 @@ import 'package:adm/main.dart';
 import 'package:adm/screens/doctor_details.dart';
 import 'package:adm/screens/doctor_model.dart';
 import 'package:adm/screens/image_clip_view.dart';
-import 'package:adm/screens/services.dart';
+// import 'package:adm/screens/services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +21,11 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Medical Admin"),
+        backgroundColor: darkColor,
+        title: const Text(
+          "Medical Admin",
+          style: TextStyle(color: Colors.white),
+        ),
         centerTitle: true,
       ),
       body: FutureBuilder<QuerySnapshot>(
@@ -48,6 +52,8 @@ class _HomeScreenState extends State<HomeScreen> {
               }
               final doctors = snapshot.data!.docs.map((doc) {
                 final data = doc.data() as Map<String, dynamic>;
+                print(data);
+
                 return Doctor.fromMap(data);
               }).toList();
 
@@ -64,7 +70,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                       child: ListTile(
                         leading: ImageViewerClip(
-                          urlImage: doctor.image ?? "assets/imgs/doctor.png",
+                          urlImage: doctor.image.isNotEmpty
+                              ? doctor.image
+                              : "assets/imgs/doctor.png",
                           height: 50,
                           width: 50,
                         ),
