@@ -1,3 +1,4 @@
+import 'package:adm/main.dart';
 import 'package:adm/screens/doctor_details.dart';
 import 'package:adm/screens/doctor_model.dart';
 import 'package:adm/screens/image_clip_view.dart';
@@ -63,24 +64,25 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                       child: ListTile(
                         leading: ImageViewerClip(
-                          urlImage: doctor.image,
+                          urlImage: doctor.image ?? "assets/imgs/doctor.png",
                           height: 50,
                           width: 50,
                         ),
-                        title: Text(doctor.name),
-                        subtitle: Text(doctor.email),
-                        trailing: InkWell(
-                          onTap: () {
-                            setState(() {
-                              approval = !approval;
-                            });
-                            Services.updateDoctorApproval(doctor.id, approval);
-                          },
-                          child: doctor.approved
-                              ? const Icon(Icons.check_circle,
-                                  color: Colors.green)
-                              : const Icon(Icons.cancel, color: Colors.red),
+                        title: Text(
+                          doctor.name,
+                          style: const TextStyle(
+                              color: darkColor,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500),
                         ),
+                        subtitle: Text(
+                          doctor.email,
+                          style: const TextStyle(color: darkColor),
+                        ),
+                        trailing: doctor.approved
+                            ? const Icon(Icons.check_circle,
+                                color: Colors.green)
+                            : const Icon(Icons.cancel, color: Colors.red),
                       ),
                     ),
                   );

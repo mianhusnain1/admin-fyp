@@ -51,18 +51,13 @@ class ImageViewerClip extends StatelessWidget {
           errorBuilder:
               (BuildContext context, Object error, StackTrace? stackTrace) {
             return Container(
-              width: height,
-              height: width,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: const Icon(
-                Icons.person,
-                size: 28,
-                color: Colors.purple,
-              ),
-            );
+                width: height,
+                height: width,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Image.network(urlImage));
           },
         ),
       ),

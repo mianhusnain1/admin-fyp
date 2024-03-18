@@ -1,3 +1,4 @@
+import 'package:adm/screens/services.dart';
 import 'package:adm/main.dart';
 import 'package:adm/screens/doctor_model.dart';
 import 'package:flutter/cupertino.dart';
@@ -13,6 +14,7 @@ class DoctorDetails extends StatefulWidget {
 }
 
 class _DoctorDetailsState extends State<DoctorDetails> {
+  bool approval = false;
   @override
   Widget build(BuildContext context) {
     final doc = widget.doctor;
@@ -295,44 +297,68 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                 width: MediaQuery.of(context).size.width * 0.7,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container(
-                      height: MediaQuery.of(context).size.height * 0.06,
-                      width: MediaQuery.of(context).size.width * 0.3,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          border: Border.all(color: darkColor),
-                          borderRadius: BorderRadius.circular(30)),
-                      child: const Center(
-                        child: Text(
-                          "Decline",
-                          style: TextStyle(
-                              color: darkColor,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          approval = false;
+                        });
+
+                        Services.updateDoctorApproval(doc.id, approval);
+                      },
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.06,
+                        width: MediaQuery.of(context).size.width * 0.3,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            border: Border.all(color: darkColor),
+                            borderRadius: BorderRadius.circular(30)),
+                        child: const Center(
+                          child: Text(
+                            "Decline",
+                            style: TextStyle(
+                                color: darkColor,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          ),
                         ),
                       ),
                     ),
                     Container(
                       width: 10,
                     ),
-                    Container(
-                      height: MediaQuery.of(context).size.height * 0.06,
-                      width: MediaQuery.of(context).size.width * 0.3,
-                      decoration: BoxDecoration(
-                          color: darkColor,
-                          borderRadius: BorderRadius.circular(30)),
-                      child: const Center(
-                        child: Text(
-                          "Approve",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
-                        ),
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          approval = true;
+                        });
+
+                        Services.updateDoctorApproval(doc.id, approval);
+                      },
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.06,
+                        width: MediaQuery.of(context).size.width * 0.3,
+                        decoration: BoxDecoration(
+                            color: approval ? Colors.green : darkColor,
+                            borderRadius: BorderRadius.circular(30)),
+                        child: Center(
+                            child: approval
+                                ? const Text(
+                                    "Approved",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
+                                  )
+                                : const Text(
+                                    "Approve",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
+                                  )),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
