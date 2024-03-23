@@ -215,7 +215,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                   ),
                 ),
                 const SizedBox(
-                  height: 5,
+                  height: 9,
                 ),
                 Container(
                     height: MediaQuery.of(context).size.height * 0.05,
