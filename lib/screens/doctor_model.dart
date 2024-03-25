@@ -12,8 +12,10 @@ class Doctor {
   final String image;
   final String license;
   final bool approved;
+  final String language;
 
   Doctor({
+    required this.language,
     required this.id,
     required this.email,
     required this.name,
@@ -44,6 +46,7 @@ class Doctor {
       schedule: data['schedule'] ?? "",
       image: data['image'] ?? "",
       license: data['lic'] ?? "",
+      language: data['lang'] ?? "",
     );
   }
 
@@ -62,6 +65,7 @@ class Doctor {
       'schedule': schedule,
       'image': image,
       'lic': license,
+      'lang': language
     };
   }
 }
