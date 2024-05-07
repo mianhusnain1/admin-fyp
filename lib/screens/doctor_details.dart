@@ -127,7 +127,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                       ),
                       const Text(" :"),
                       const SizedBox(
-                        width: 10,
+                        width: 11,
                       ),
                       const Text(
                         "+92 316 1404 158",
