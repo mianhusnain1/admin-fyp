@@ -48,36 +48,36 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                           color: Colors.red,
                           borderRadius: BorderRadius.circular(30)),
                     ),
-                    Container(
-                      height: 280,
-                      width: MediaQuery.of(context).size.width - 220,
-                      decoration: const BoxDecoration(),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 20.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text(
-                              doc.name,
-                              style: const TextStyle(fontSize: 20),
-                            ),
-                            Text(
-                              doc.category,
-                              style: const TextStyle(fontSize: 18),
-                            ),
-                            const Text(
-                              "Available",
-                              style:
-                                  TextStyle(fontSize: 20, color: Colors.blue),
-                            ),
-                            // const Text(
-                            //   "8am to 8pm",
-                            //   style: TextStyle(fontSize: 18),
-                            // ),
-                          ],
-                        ),
-                      ),
-                    )
+                    // Container(
+                    //   height: 280,
+                    //   width: MediaQuery.of(context).size.width - 220,
+                    //   decoration: const BoxDecoration(),
+                    //   child: Padding(
+                    //     padding: const EdgeInsets.symmetric(vertical: 20.0),
+                    // child: Column(
+                    //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    //   children: [
+                    //     Text(
+                    //       doc.name,
+                    //       style: const TextStyle(fontSize: 20),
+                    //     ),
+                    //     Text(
+                    //       doc.category,
+                    //       style: const TextStyle(fontSize: 18),
+                    //     ),
+                    //     const Text(
+                    //       "Available",
+                    //       style:
+                    //           TextStyle(fontSize: 20, color: Colors.blue),
+                    //     ),
+                    // const Text(
+                    //   "8am to 8pm",
+                    //   style: TextStyle(fontSize: 18),
+                    //   // ),
+                    // ],
+                    // ),
+                    // ),
+                    // )
                   ],
                 ),
               ),
