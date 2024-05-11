@@ -1,3 +1,4 @@
+import 'package:adm/screens/doctor_details.dart';
 import 'package:adm/screens/doctor_model.dart';
 import 'package:adm/screens/image_clip_view.dart';
 import 'package:adm/screens/services.dart';
@@ -54,25 +55,32 @@ class _HomeScreenState extends State<HomeScreen> {
                 itemBuilder: (context, index) {
                   final doctor = doctors[index];
                   return Card(
-                    child: ListTile(
-                      leading: ImageViewerClip(
-                        urlImage: doctor.image,
-                        height: 50,
-                        width: 50,
-                      ),
-                      title: Text(doctor.name),
-                      subtitle: Text(doctor.email),
-                      trailing: InkWell(
-                        onTap: () {
-                          setState(() {
-                            approval = !approval;
-                          });
-                          Services.updateDoctorApproval(doctor.id, approval);
-                        },
-                        child: doctor.approved
-                            ? const Icon(Icons.check_circle,
-                                color: Colors.green)
-                            : const Icon(Icons.cancel, color: Colors.red),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => DoctorDetails(doctor: doctor),
+                        ));
+                      },
+                      child: ListTile(
+                        leading: ImageViewerClip(
+                          urlImage: doctor.image,
+                          height: 50,
+                          width: 50,
+                        ),
+                        title: Text(doctor.name),
+                        subtitle: Text(doctor.email),
+                        trailing: InkWell(
+                          onTap: () {
+                            setState(() {
+                              approval = !approval;
+                            });
+                            Services.updateDoctorApproval(doctor.id, approval);
+                          },
+                          child: doctor.approved
+                              ? const Icon(Icons.check_circle,
+                                  color: Colors.green)
+                              : const Icon(Icons.cancel, color: Colors.red),
+                        ),
                       ),
                     ),
                   );
