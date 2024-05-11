@@ -1,4 +1,4 @@
-import 'package:adm/screens/doc_model.dart';
+import 'package:adm/screens/doctor_model.dart';
 import 'package:flutter/material.dart';
 
 class DoctorDetails extends StatefulWidget {

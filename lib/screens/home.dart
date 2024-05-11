@@ -1,4 +1,4 @@
-import 'package:adm/screens/doc_model.dart';
+import 'package:adm/screens/doctor_model.dart';
 import 'package:adm/screens/image_clip_view.dart';
 import 'package:adm/screens/services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
