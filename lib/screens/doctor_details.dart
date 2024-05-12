@@ -70,10 +70,10 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                               style:
                                   TextStyle(fontSize: 20, color: Colors.blue),
                             ),
-                            const Text(
-                              "8am to 8pm",
-                              style: TextStyle(fontSize: 18),
-                            ),
+                            // const Text(
+                            //   "8am to 8pm",
+                            //   style: TextStyle(fontSize: 18),
+                            // ),
                           ],
                         ),
                       ),
