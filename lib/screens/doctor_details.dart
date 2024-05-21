@@ -53,24 +53,27 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Container(
-                          height: 180,
-                          width: MediaQuery.of(context).size.width - 220,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            border: Border.all(color: Colors.black54),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 7.0),
+                          child: Container(
+                            height: 180,
+                            width: MediaQuery.of(context).size.width - 220,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(25),
+                              border: Border.all(color: Colors.black54),
+                            ),
+                            child: doc.image == ""
+                                ? ClipRRect(
+                                    borderRadius: BorderRadius.circular(25),
+                                    child: Image.asset(
+                                      "assets/imgs/doctor.png",
+                                      fit: BoxFit.contain,
+                                    ),
+                                  )
+                                : ClipRRect(
+                                    borderRadius: BorderRadius.circular(25),
+                                    child: Image.network(doc.image)),
                           ),
-                          child: doc.image == ""
-                              ? ClipRRect(
-                                  borderRadius: BorderRadius.circular(30),
-                                  child: Image.asset(
-                                    "assets/imgs/doctor.png",
-                                    fit: BoxFit.contain,
-                                  ),
-                                )
-                              : ClipRRect(
-                                  borderRadius: BorderRadius.circular(30),
-                                  child: Image.network(doc.image)),
                         ),
                         Container(
                           height: 280,
@@ -318,6 +321,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                         });
 
                         Services.updateDoctorApproval(doc.id, approval);
+                        setState(() {});
                       },
                       child: Container(
                         height: MediaQuery.of(context).size.height * 0.06,
@@ -347,15 +351,16 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                         });
 
                         Services.updateDoctorApproval(doc.id, approval);
+                        setState(() {});
                       },
                       child: Container(
                         height: MediaQuery.of(context).size.height * 0.06,
                         width: MediaQuery.of(context).size.width * 0.3,
                         decoration: BoxDecoration(
-                            color: approval ? Colors.green : darkColor,
+                            color: doc.approved ? Colors.green : darkColor,
                             borderRadius: BorderRadius.circular(30)),
                         child: Center(
-                            child: approval
+                            child: doc.approved
                                 ? const Text(
                                     "Approved",
                                     style: TextStyle(
